@@ -25,4 +25,4 @@ npm run dev
 4. Acesse a URL disponibilizada pelo servidor de desenvolvimento em http://127.0.0.1:5173/
 ```
 
-<p align="center">De <a href="https://www.linkedin.com/in/thiagomslv/">Thiago Marques</a> para o mundo!</p>
+<p align="center">De <a href="https://www.linkedin.com/in/thiagomslv/" target="_blank">Thiago Marques</a> para o mundo!</p>
