@@ -1,5 +1,33 @@
-<script setup>
+<script>
 
+    export default{
+
+        data(){
+
+            return({    
+
+                counter: 0,
+                numbers: ["0", "0", "0", "0"]
+            })
+        },
+
+        methods: {
+
+            addCounter(){
+
+                this.counter++;
+                const countStrig = this.counter.toString();
+
+                const msb = countStrig.length;
+
+                for(let i = 0, control = msb - 1; i < msb; i++){
+
+                    this.numbers[i] = countStrig[control--];
+                }
+            }
+        }
+    }
+    
 </script>
 
 <template>
@@ -7,11 +35,17 @@
     <div class="counter">
 
         <div class="containerNumber">
-            <span class="number">0</span>
-            <span class="number">0</span>
-            <span class="number">0</span>
-            <span class="number">0</span>
+            <span class="number">{{ numbers[3] }}</span>
+            <span class="number">{{ numbers[2] }}</span>
+            <span class="number">{{ numbers[1] }}</span>
+            <span class="number">{{ numbers[0] }}</span>
         </div>
+
+        <div class="containerbuttons">
+            <button class="button remove" type="button">-</button>
+            <button @click="addCounter" class="button add" type="button">+</button>
+        </div>
+        
     </div>
   
 </template>
@@ -26,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     font-size: 5em;
 }
@@ -44,6 +79,17 @@
     border-radius: 5px;
 }
 
+.containerbuttons{
+
+    width: 200px;
+    height: 90px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
 .number{
 
     width: 80px;
@@ -52,4 +98,47 @@
     background-color: black;
     border-radius: 5px;
 }
+
+.button{
+
+    width: 80px;
+    height: 80px;
+    font-size: 0.7em;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    border: solid 4px rgb(54, 54, 54);
+
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.add{
+
+    background-color: #19d476;
+}
+
+.remove{
+
+    background-color: #d9655a;
+}
+
+.add:hover{
+
+    background-color: #008933;
+    border: solid 4px black;
+}
+
+.remove:hover{
+
+    background-color: #881c1d;
+    border: solid 4px black;
+}
+
 </style>
