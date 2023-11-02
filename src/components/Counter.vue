@@ -17,27 +17,41 @@
 
                 this.counter++;
                 const countStrig = this.counter.toString();
+                for(let i = 0; i < 4; i++) this.numbers[i] = "0";
 
-                const msb = countStrig.length;
+                if(this.counter < 0){
 
-                for(let i = 0, control = msb - 1; i < msb; i++){
+                    const msb = countStrig.length - 1;
 
-                    this.numbers[i] = countStrig[control--];
+                    for(let i = 0, control = msb; i < msb; i++){
+
+
+                        this.numbers[i] = countStrig[control--];
+                    }
+
+                    const mumberWithSubSimbol = "-" + this.numbers[msb - 1];
+                    this.numbers[msb - 1] = mumberWithSubSimbol;
+
+                }else{
+
+                    const msb = countStrig.length;
+
+                    for(let i = 0, control = msb - 1; i < msb; i++){
+
+                        this.numbers[i] = countStrig[control--];
+                    }
                 }
+                
             },
 
             subCounter(){
 
-                const msbBefore = this.counter.toString().length;
                 this.counter--;
 
                 const countStrig = this.counter.toString();
                 const msb = countStrig.length - 1;
-                
-                if(msbBefore != msb){
 
-                    for(let i = 0; i < 4; i++) this.numbers[i] = "0";
-                }
+                for(let i = 0; i < 4; i++) this.numbers[i] = "0";
 
                 if(this.counter < 0){
 
@@ -52,7 +66,7 @@
 
                 }else{
 
-                    for(let i = 0, control = msb; i < msb; i++){
+                    for(let i = 0, control = msb; i < msb + 1; i++){
 
                         this.numbers[i] = countStrig[control--];
                     }
@@ -69,6 +83,7 @@
 
     <div class="counter">
 
+        <h1>Contador numérico</h1>
         <div class="containerNumber">
             <span class="number">{{ numbers[3] }}</span>
             <span class="number">{{ numbers[2] }}</span>
@@ -87,6 +102,10 @@
 
 <style scoped>
 
+h1{
+
+    font-size: 34px;
+}
 .counter{
 
     width: 100vw;
