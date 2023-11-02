@@ -1,7 +1,28 @@
-# Vue 3 + Vite
+<h1 align=center>Contador numérico</h1>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 1 - Sobre
 
-## Recommended IDE Setup
+Este contador numérico é de múltiplo propósito onde você pode utilizar para contabilizar itens. O contador funciona também para números negativos.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 2 - Tecnologias
+
+- VueJs
+- JavaScript
+- CSS
+
+## 3 - Como rodar o projeto
+
+```
+1. Faça o clone do repositório com o Git.
+$ git clone https://github.com/thiagomslv/counter.git
+
+2. Instale as dependências pelo terminal.
+npm install
+
+3. Inicie a aplicação em modo de desenvolvimento.
+npm run dev
+
+4. Acesse a URL disponibilizada pelo servidor de desenvolvimento em http://127.0.0.1:5173/
+```
+
+<p align="center">De <a href="https://www.linkedin.com/in/thiagomslv/">Thiago Marques</a> para o mundo!</p>
