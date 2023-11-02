@@ -24,6 +24,41 @@
 
                     this.numbers[i] = countStrig[control--];
                 }
+            },
+
+            subCounter(){
+
+                const msbBefore = this.counter.toString().length;
+                this.counter--;
+
+                const countStrig = this.counter.toString();
+                const msb = countStrig.length - 1;
+                
+                if(msbBefore != msb){
+
+                    for(let i = 0; i < 4; i++) this.numbers[i] = "0";
+                }
+
+                if(this.counter < 0){
+
+                    for(let i = 0, control = msb; i < msb; i++){
+
+
+                        this.numbers[i] = countStrig[control--];
+                    }
+
+                    const mumberWithSubSimbol = "-" + this.numbers[msb - 1];
+                    this.numbers[msb - 1] = mumberWithSubSimbol;
+
+                }else{
+
+                    for(let i = 0, control = msb; i < msb; i++){
+
+                        this.numbers[i] = countStrig[control--];
+                    }
+                }
+
+                
             }
         }
     }
@@ -42,7 +77,7 @@
         </div>
 
         <div class="containerbuttons">
-            <button class="button remove" type="button">-</button>
+            <button @click="subCounter" class="button remove" type="button">-</button>
             <button @click="addCounter" class="button add" type="button">+</button>
         </div>
         
