@@ -6,6 +6,7 @@
 
             return({    
 
+                number: "number",
                 counter: 0,
                 numbers: ["0", "0", "0", "0"]
             })
@@ -17,9 +18,10 @@
 
                 this.counter++;
                 const countStrig = this.counter.toString();
-                for(let i = 0; i < 4; i++) this.numbers[i] = "0";
-
+                
                 if(this.counter < 0){
+
+                    for(let i = 0; i < 4; i++) this.numbers[i] = "";
 
                     const msb = countStrig.length - 1;
 
@@ -33,6 +35,10 @@
                     this.numbers[msb - 1] = mumberWithSubSimbol;
 
                 }else{
+
+                    this.number = "number";
+
+                    for(let i = 0; i < 4; i++) this.numbers[i] = "0";
 
                     const msb = countStrig.length;
 
@@ -51,9 +57,11 @@
                 const countStrig = this.counter.toString();
                 const msb = countStrig.length - 1;
 
-                for(let i = 0; i < 4; i++) this.numbers[i] = "0";
-
                 if(this.counter < 0){
+
+                    this.number = "redNumber";
+
+                    for(let i = 0; i < 4; i++) this.numbers[i] = "";
 
                     for(let i = 0, control = msb; i < msb; i++){
 
@@ -65,6 +73,8 @@
                     this.numbers[msb - 1] = mumberWithSubSimbol;
 
                 }else{
+
+                    for(let i = 0; i < 4; i++) this.numbers[i] = "0";
 
                     for(let i = 0, control = msb; i < msb + 1; i++){
 
@@ -85,10 +95,10 @@
 
         <h1>Contador numérico</h1>
         <div class="containerNumber">
-            <span class="number">{{ numbers[3] }}</span>
-            <span class="number">{{ numbers[2] }}</span>
-            <span class="number">{{ numbers[1] }}</span>
-            <span class="number">{{ numbers[0] }}</span>
+            <span :class="number">{{ numbers[3] }}</span>
+            <span :class="number">{{ numbers[2] }}</span>
+            <span :class="number">{{ numbers[1] }}</span>
+            <span :class="number">{{ numbers[0] }}</span>
         </div>
 
         <div class="containerbuttons">
@@ -150,6 +160,17 @@ h1{
     height: 120px;
     text-align: center;
     background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.redNumber{
+
+    width: 80px;
+    height: 120px;
+    text-align: center;
+    background-color: black;
+    color: #d9655a;
     border-radius: 5px;
 }
 
